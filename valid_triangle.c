@@ -21,7 +21,7 @@ int main(void)
         }
     }
 
-    int is_valid = valid_triangle(triangle_sides);
+    bool is_valid = valid_triangle(triangle_sides);
 
     printf("Is valid triangle? %s\n", is_valid ? "true" : "false");
 
