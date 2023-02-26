@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-int search(int n);
-
 int main(void)
 {
 
