@@ -4,30 +4,32 @@ const int arrayLen = 10;
 
 int main(void)
 {
-    int array[] = {5,3,8,9,4,2,0,1,7,6};
+    int array[] = {5,0,1,9,4,2,8,3,7,6};
+    int min_index;
     int temp;
-    int index;
 
     for (int i = 0; i < arrayLen; i++)
     {
 
-        temp = i;
+        min_index = i;
 
-        for (int j = i + 1; j < arrayLen - 1; j++)
+        for (int j = i + 1; j < arrayLen; j++)
         {
 
-            if (array[j] < array[i]) {
-                temp = array[j];
-                index = j;
+            if (array[min_index] > array[j]) {
+                min_index = j;
             }
 
         }
 
-        if (temp != i)
+        if (min_index != i)
         {
-            array[index] = array[i];
+            temp = array[min_index];
+            array[min_index] = array[i];
             array[i] = temp;
         }
+
+        printf("%i\n", array[i]);
 
     }
 
