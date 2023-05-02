@@ -10,12 +10,12 @@ typedef struct node
 }
 node;
 
-node* add(node* list, int number);
+void add(node ** list, int number);
 void visualize(node* list);
 void push_start(node ** list, int number);
 void push_end(node * list, int number);
-int search();
-int destroy();
+int search(node * list, int number);
+void destroy(node * list);
 
 int const LENGTH = 5;
 
@@ -27,28 +27,24 @@ int main(void)
 
     for(int i = 0; i < LENGTH; i++)
     {
-        list = add(list, numbers[i]);
-        printf("lista atualizada %i\n", list->number);
+        add(&list, numbers[i]);
     }
 
-    push_end(list, 0);
-    push_start(&list, 6);
+    destroy(list);
+    list = NULL;
     visualize(list);
     
 }
 
-node* add(node* list, int number)
+void add(node ** list, int number)
 {
 
     node *n = malloc(sizeof(node));
     n->number = number;
-    n->next = list;
+    n->next = *list;
 
-    list = n;
+    *list = n;
     
-
-
-    return list;
 }
 
 void visualize(node* list)
@@ -89,5 +85,43 @@ void push_start(node ** list, int number)
     new_node->next = *list;
 
     *list = new_node;
+
+}
+
+int search(node * list, int number)
+{
+
+    node * ptr = list;
+    int i = 0;
+
+    while(ptr != NULL)
+    {
+
+        if (ptr->number == number) {
+            printf("Number %i found in position %i\n", number, i);
+            return 1;
+        }
+
+        ptr = ptr->next;
+        i++;
+
+    }
+
+    printf("Number not found\n");
+    return 1;
+
+
+}
+
+void destroy(node * list)
+{
+
+    if (list == NULL) {
+        printf("list eh null\n");
+        return;
+    }
+    destroy(list->next);
+    printf("removing pointer %p\n", list);
+    free(list);
 
 }
