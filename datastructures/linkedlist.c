@@ -30,6 +30,7 @@ int main(void)
         add(&list, numbers[i]);
     }
 
+    visualize(list);
     destroy(list);
     list = NULL;
     visualize(list);
