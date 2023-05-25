@@ -15,7 +15,7 @@ int main(void) {
     unionF(id, 5, 7);
     unionF(id, 5, 2);
     unionF(id, 1, 2);
-    unionF(id, 7, 5);
+    unionF(id, 4, 5);
     unionF(id, 9, 8);
     unionF(id, 8, 0);
     unionF(id, 3, 6);
