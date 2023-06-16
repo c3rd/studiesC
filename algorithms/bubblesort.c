@@ -6,7 +6,6 @@ int main(void)
 {
 
     int array[numberEl] = {5,6,9,2,1,3,8,0,4,7};
-    int n;
 
     int swapCounter;
     int temp;

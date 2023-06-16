@@ -8,7 +8,7 @@ struct student
     struct subject
     {
         char *name;
-        int *mark;
+        int mark;
     } sub[3];
 } *s;
 
@@ -26,13 +26,23 @@ int main(void)
         printf("Enter ID: ");
         scanf("%d", &s[i].id);
         fflush(stdin);
+        s[i].name = (char *) malloc(sizeof(char) * 20);
         printf("Enter name for ID %d: ", s[i].id);
-        getline(&s[i].name, &inputSize, stdin);
+        scanf("%s", s[i].name);
+        for (int j = 0; j < 3; j++)
+        {
+            printf("Enter mark number %d: ", j + 1);
+            scanf("%d", &s[i].sub[j].mark);
+        }
     }
 
     for (int i = 0; i < n; i++)
     {
         printf("%-5d%-10s", s[i].id, s[i].name);
+        for(int j=0; j < 3; j++) {
+            printf("%10d", s[i].sub[j].mark);
+        }
+        printf("\n");
     }
     return 0;
 }
