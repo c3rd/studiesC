@@ -16,7 +16,6 @@ int main(void)
 {
 
     int n;
-    size_t inputSize;
     printf("Enter number of students: ");
     scanf("%d", &n);
 
@@ -26,7 +25,7 @@ int main(void)
         printf("Enter ID: ");
         scanf("%d", &s[i].id);
         fflush(stdin);
-        s[i].name = (char *) malloc(sizeof(char) * 20);
+        s[i].name = (char *)malloc(sizeof(char) * 20);
         printf("Enter name for ID %d: ", s[i].id);
         scanf("%s", s[i].name);
         for (int j = 0; j < 3; j++)
@@ -39,7 +38,8 @@ int main(void)
     for (int i = 0; i < n; i++)
     {
         printf("%-5d%-10s", s[i].id, s[i].name);
-        for(int j=0; j < 3; j++) {
+        for (int j = 0; j < 3; j++)
+        {
             printf("%10d", s[i].sub[j].mark);
         }
         printf("\n");
